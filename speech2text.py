@@ -5,13 +5,13 @@ from convert import toWav
 st = time.time()
 
 while True:
-    flag = fetchAudio()
+    flag,filename = fetchAudio()
     if flag:
         print(1)
-        toWav()
+        toWav(filename)
         print(2)
         r = sr.Recognizer()
-        hd = sr.AudioFile('audio.wav')
+        hd = sr.AudioFile("audio_files/"+filename.split(".")[0]+".wav")
         with hd as source:
             audio = r.record(source)
             print(type(audio))

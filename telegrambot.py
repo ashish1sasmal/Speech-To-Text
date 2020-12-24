@@ -12,7 +12,7 @@ bot_token = parser.get('cred','token')
 def download(url):
     try:
         file_resp = rq.get(url)
-        open('audio.oga','wb').write(file_resp.content)
+        open('audio_files/audio.oga','wb').write(file_resp.content)
         return True
     except:
         return False
@@ -49,12 +49,12 @@ def fetchAudio():
                         print("[ Download Successful ]")
                         data['file_id'] = file_id
                         write_json(data)
-                        return True
+                        return True, file_path.split("/")[-1]
                     else:
                         raise ValueError('Some Error Occured.')
-                        return False
+                        return False,None
                 else:
-                    return False
+                    return False,None
 
     # except:
     #     print("Some Error Occured.")

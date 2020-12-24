@@ -1,8 +1,9 @@
 import subprocess
 
-def toWav():
-    src_filename = 'audio.oga'
-    dest_filename = 'audio.wav'
+def toWav(filename):
+    src_filename = 'audio_files/audio.oga'
+    print(filename.split(".")[0]+".wav")
+    dest_filename = "audio_files/"+filename.split(".")[0]+".wav"
 
     process = subprocess.run(['ffmpeg', '-i', src_filename, dest_filename])
     if process.returncode != 0:
