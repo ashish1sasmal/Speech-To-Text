@@ -17,7 +17,7 @@ def download(url):
     except:
         return False
 
-def simplesend(resp,chat_id="641494521"):
+def simplesend(resp,chat_id="CHAT_ID"):
     url = f"{BASE_URL}{bot_token}/sendMessage?chat_id={chat_id}&text={resp}"
     rq.get(url)
 
